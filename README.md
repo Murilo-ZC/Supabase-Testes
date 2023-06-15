@@ -16,3 +16,49 @@ A primeira mudança, vai ser no formato de armazenar nossas chaves de acesso. Pa
 
 As configurações do Supabase funcionando em conjunto com frameworks Web de Python. Cada diretório vai possuir sua própria configuração de **venv**, que estará nos arquivos de **requirements.txt** de cada diretório.
 
+## Integração com FastAPI
+
+Dentro do diretório: ***integracao-fastapi***.
+
+Todo o código-fonte está dentro do diretório **/src**. Apenas um README foi criado para o projeto para facilitar a localização das informações. O objetivo deste projeto é integrar o FastAPI com o Supabase. Possibilitando as seguintes funcionalidades:
+- Receber um POST com uma imagem e subir ela no Supabase. Se nenhum ID de projeto vier associado a imagem que foi enviada, este projeto será carregado na coleção "anonymous".
+- Receber um GET para conhecer todas as coleções que estão cadastradas.
+- Receber um GET para conhecer todas as imagens cadastradas em uma determinada coleção.
+- Receber um GET para buscar as informações de uma imagem específica de uma coleção.
+- Receber um PUT para atualizar uma imagem em uma coleção.
+- Receber um DELETE para apagar uma imagem em uma coleção.
+- Receber um DELETE para apagar uma coleção.
+- Uma página estática mínima para demonstrar as funcionalidades implementadas.
+
+A configuração da aplicação com [FastAPI](https://fastapi.tiangolo.com/) já preve a utilização do framework estruturando os recursos do projeto. A estrutura da solução será:
+```sh
+./src
+├── app
+│   ├── __init__.py
+│   ├── main.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── image.py
+│   │   └── collection.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── image.py
+│   │   └── collection.py
+│   └── services
+│       ├── __init__.py
+│       ├── image.py
+│       └── collection.py
+├── static
+│   └── index.html
+./keys.env
+./requirements.txt
+```
+
+Cada um dos diretórios tem uma funcionalidade:
+- ***app***: Este diretório contém todo o código da sua aplicação.
+- ***main.py***: Este é o ponto de entrada da sua aplicação. Aqui você vai criar a instância do FastAPI e incluir todas as rotas.
+- ***models***: Este diretório contém todos os modelos de dados que a sua aplicação irá usar.
+- ***routes***: Este diretório contém todos os arquivos de rotas da sua aplicação. Cada arquivo define as rotas para um recurso específico.
+- ***services***: Este diretório contém todo o código que implementa a lógica de negócio da sua aplicação. Cada arquivo implementa as operações para um recurso específico.
+- ***static***: Este diretório contém todos os arquivos estáticos da sua aplicação.
+
