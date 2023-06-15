@@ -62,3 +62,4 @@ Cada um dos diretórios tem uma funcionalidade:
 - ***services***: Este diretório contém todo o código que implementa a lógica de negócio da sua aplicação. Cada arquivo implementa as operações para um recurso específico.
 - ***static***: Este diretório contém todos os arquivos estáticos da sua aplicação.
 
+O [***Pydantic***](https://docs.pydantic.dev/latest/) serve para validar os dados recebidos em uma requisição. Com ele, modelamos um classe que deve conter os campos necessários em um POST que será realizado. Dsta forma, se o POST não vier com as informações necessárias, o FastAPI já devolve um erro para quem fez a requisição. Além disso, esses comportamento são monitorados pela API do Swagger para realizar a documentação de forma automática.

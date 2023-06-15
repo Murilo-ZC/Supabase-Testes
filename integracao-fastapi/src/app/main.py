@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from app.routes import image, collection
+from routes import image, collection
 
 app = FastAPI()
 
@@ -15,4 +15,4 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 import uvicorn
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
